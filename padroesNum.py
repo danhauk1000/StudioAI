@@ -23,7 +23,6 @@ generation_config = {
 
 # --- INSTRUÇÃO DE SISTEMA (COLE AQUI) ---
 system_instruction = "Analise o documento PDF anexo que contém uma série histórica de sequências numéricas.
-    
     Seu objetivo é:
     1. Extrair todas as sequências numéricas presentes no documento.
     2. Reconhecer padrões dentro de cada sequência (ex: progressões, somas, paridade).
