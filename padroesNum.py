@@ -53,10 +53,15 @@ def inicializar_gemini():
         st.info("💡 Certifique-se de que o arquivo .streamlit/secrets.toml existe localmente.")
         st.stop()
         
-    genai.configure(api_key=api_key)
-    return genai.GenerativeModel('gemini-3.1-pro-preview')
+    try:
+        genai.configure(api_key=api_key)
+        # Nota: Use 'gemini-1.5-pro' ou 'gemini-1.5-flash' para as versões estáveis atuais
+        return genai.GenerativeModel(''gemini-3.1-pro-preview'')
+    except Exception as e:
+        st.error(f"Erro ao configurar o modelo Gemini: {e}")
+        st.stop()
 
-model = init_gemini()
+model = inicializar_gemini()
 
 def analyze_data(data_source, is_pdf=False):
     prompt = """
