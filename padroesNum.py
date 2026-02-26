@@ -56,7 +56,7 @@ def inicializar_gemini():
     try:
         genai.configure(api_key=api_key)
         # Nota: Use 'gemini-1.5-pro' ou 'gemini-1.5-flash' para as versões estáveis atuais
-        return genai.GenerativeModel(''gemini-3.1-pro-preview'')
+        return genai.GenerativeModel('gemini-3.1-pro-preview')
     except Exception as e:
         st.error(f"Erro ao configurar o modelo Gemini: {e}")
         st.stop()
