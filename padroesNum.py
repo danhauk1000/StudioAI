@@ -45,8 +45,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Inicialização da API do Gemini
-def init_gemini():
-    api_key = os.getenv("GEMINI_API_KEY")
+api_key = st.secrets["GEMINI_API_KEY"]
     if not api_key:
         st.error("Erro: A variável de ambiente GEMINI_API_KEY não foi encontrada.")
         st.stop()
