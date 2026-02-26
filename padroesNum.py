@@ -45,10 +45,14 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Inicialização da API do Gemini
-api_key = st.secrets["GEMINI_API_KEY"];
+def inicializar_gemini():
+    api_key = st.secrets.get("GEMINI_API_KEY")
+
     if not api_key:
-        st.error("Erro: A variável de ambiente GEMINI_API_KEY não foi encontrada.")
+        st.error("Erro: A chave GEMINI_API_KEY não foi configurada nos Secrets do Streamlit.")
+        st.info("💡 Certifique-se de que o arquivo .streamlit/secrets.toml existe localmente.")
         st.stop()
+        
     genai.configure(api_key=api_key)
     return genai.GenerativeModel('gemini-3.1-pro-preview')
 
